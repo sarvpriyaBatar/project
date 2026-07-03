@@ -157,7 +157,7 @@ app.get("/logout", (req, res, next) => {
   });
 });
 
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   const allListings = await Listing.find({});
   res.render("listing/index", { allListings });
 });
