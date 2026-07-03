@@ -1,0 +1,120 @@
+
+<% layout("Layout/boilerplate") %>
+
+
+<div class="sc-container">
+    <div class="sc-card">
+        
+        <form action="/login" method="post">
+            <!-- Username Input -->
+            <div class="sc-field">
+                <label class="sc-label" for=username">Username</label>
+                <input class="sc-input" type="text" id="username" name="username" placeholder="Choose a username" required>
+            </div>
+            
+            <!-- Password Input -->
+            <div class="sc-field">
+                <label class="sc-label" for="password">Password</label>
+                <input class="sc-input" type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+            <% if(!currUser) { %>
+                <a href="/signup">sign up</a>
+
+                 <%  } %>
+            
+            <!-- Submit Button -->
+            <button class="sc-button" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
+
+<style>
+  
+    .sc-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 20px;
+        background-color: #f3f4f6;
+    }
+
+    
+    .sc-card {
+        background-color: #ffffff;
+        width: 100%;
+        max-width: 400px;
+        padding: 32px;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+   
+    .sc-card *, .sc-card *::before, .sc-card *::after {
+        box-sizing: border-box;
+    }
+
+  
+    .sc-title {
+        font-size: 24px;
+        font-weight: 600;
+        color: #111827;
+        margin: 0 0 24px 0;
+        text-align: center;
+    }
+
+    
+    .sc-field {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+  
+    .sc-label {
+        display: block;
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 6px;
+        color: #4b5563;
+    }
+
+    .sc-input {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 15px;
+        outline: none;
+        background-color: #ffffff;
+        color: #1f2937;
+        transition: all 0.2s ease;
+    }
+
+   
+    .sc-input:focus {
+        border-color: #fe424d;
+        box-shadow: 0 0 0 4px rgba(254, 66, 77, 0.1);
+    }
+
+    
+    .sc-button {
+        width: 100%;
+        padding: 12px;
+        background-color: #fe424d; 
+        color: #ffffff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+        margin-top: 8px;
+    }
+
+  
+    .sc-button:hover {
+        background-color: #e63946;
+    }
+</style>
+

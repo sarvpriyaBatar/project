@@ -1,0 +1,80 @@
+<% layout("Layout/boilerplate") %>
+<body>
+  <style>
+    .filters {
+        display: flex;
+        flex-wrap: wrap; 
+    }
+    #filter {
+        opacity: 0.6;
+        margin-right: 2rem; 
+        text-align: center; 
+    }
+
+    #filter:hover {
+        opacity: 1;
+        cursor: pointer;
+    }
+  </style>
+<div class="filters mt-3 mb-3 offset-2">
+    <div id="filter"><i class="fa-solid fa-fire"></i>
+    <p>trending</p>
+    </div>
+
+    <div id="filter">
+        <i class="fa-solid fa-bed"></i>
+        <p>beds</p>
+    </div>
+
+    <div id="filter">
+        <i class="fa-solid fa-mountain-city"></i>
+        <p>Iconic cities</p>
+    </div>
+    <div id="filter">
+        <i class="fa-solid fa-mountain"></i>
+        <p>Mountains</p>
+    </div>
+    <div id="filter">
+        <i class="fa-solid fa-person-swimming"></i>
+        <p>Beachfront</p>
+    </div>
+
+    <div id="filter">
+        <i class="fa-solid fa-campground"></i>
+        <p>Campgrounds</p>
+    </div>
+
+    <div id="filter">
+        <i class="fa-solid fa-building-wheat"></i>
+        <p>Treehouses</p>
+    </div>
+    <div id="filter">
+        <i class="fa-regular fa-snowflake"></i>
+        <p>Winter getaways</p>
+    </div>
+    <div id="filter">
+        <i class="fa-brands fa-fort-awesome"></i>
+        <p>Castles</p>
+    </div>
+</div>
+
+    <div class="row row-cols-md-4 row-cols-lg-3" >
+          
+    <% for(let listing of allListings) { %>
+    
+    <a href="/listings/<%= listing._id %>" class="link">
+        <div class="card listing-card" style="width: 27rem;">
+        <img src="<%= listing.image.url %>" class="card-img-top" alt="listinng_image">
+         <div class="card-img-overlay">
+    <h5 class="card-title">Card title</h5>
+  </div>
+          <div class="card-body">
+         <b> <p class="card-text"><%= listing.title %><br></b>
+           &#8377; <%= listing.price.toLocaleString("en-In") %>/night
+          </p>
+          </div>
+        </div>
+         </a>
+<% } %>
+</div>    
+</body>
