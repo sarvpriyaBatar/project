@@ -1,21 +1,31 @@
 <% layout("Layout/boilerplate") %>
 <body>
   <style>
-    .filters {
-        display: flex;
-        flex-wrap: wrap; 
-    }
-    #filter {
-        opacity: 0.6;
-        margin-right: 2rem; 
-        text-align: center; 
-    }
+  .filters {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    scrollbar-width: none;
+}
 
-    #filter:hover {
-        opacity: 1;
-        cursor: pointer;
-    }
-  </style>
+.filters::-webkit-scrollbar {
+    display: none;
+}
+
+#filter {
+    flex: 0 0 auto;
+    text-align: center;
+    opacity: 0.6;
+}
+
+#filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+</style>
 <div class="filters mt-3 mb-3 offset-2">
     <div id="filter"><i class="fa-solid fa-fire"></i>
     <p>trending</p>
@@ -56,25 +66,39 @@
         <i class="fa-brands fa-fort-awesome"></i>
         <p>Castles</p>
     </div>
+
+    
 </div>
 
-    <div class="row row-cols-md-4 row-cols-lg-3" >
+    <div class="row g-4" >
           
-    <% for(let listing of allListings) { %>
-    
-    <a href="/listings/<%= listing._id %>" class="link">
-        <div class="card listing-card" style="width: 27rem;">
-        <img src="<%= listing.image.url %>" class="card-img-top" alt="listinng_image">
-         <div class="card-img-overlay">
-    <h5 class="card-title">Card title</h5>
-  </div>
-          <div class="card-body">
-         <b> <p class="card-text"><%= listing.title %><br></b>
-           &#8377; <%= listing.price.toLocaleString("en-In") %>/night
-          </p>
-          </div>
+    <div class="row g-4">
+
+  <% for(let listing of allListings) { %>
+
+  <div class="col-md-4 col-sm-6">
+    <div class="card listing-card">
+
+      <a href="/listings/<%= listing._id %>" class="link">
+
+        <img src="<%= listing.image.url %>" class="card-img-top">
+
+        <div class="card-body">
+          <b>
+            <p class="card-text">
+              <%= listing.title %><br>
+              &#8377;  <%= listing.price.toLocaleString("en-IN") %>/night
+            </p>
+          </b>
         </div>
-         </a>
-<% } %>
+
+      </a>
+
+    </div>
+  </div>
+
+  <% } %>
+
+</div>
 </div>    
 </body>

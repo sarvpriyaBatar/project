@@ -19,6 +19,11 @@ body {
     height: 5rem;
     color: white !important;
 }
+.navbar{
+    min-height: 5rem;
+    height: auto;
+}
+
 
 .fa-compass{
     font-size: 2rem;
@@ -182,3 +187,22 @@ body {
     height: 400px;
     width: 100%;
 }
+
+.listing-card {
+    width: 100%;
+}
+
+.listing-card {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    .shbtn {
+        gap: 1rem;
+        justify-content: center;
+    }
+}
+
+
