@@ -157,9 +157,10 @@ app.get("/logout", (req, res, next) => {
   });
 });
 
-// app.get("/", (req, res) => {
-//   res.send("Hi, I am root");
-// });
+app.get("/", (req, res) => {
+  const allListings = await Listing.find({});
+  res.render("listing/index", { allListings });
+});
 
 
 
