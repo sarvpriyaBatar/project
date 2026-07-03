@@ -26,7 +26,7 @@ const upload = multer({ storage: storage });
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 const mapBoxToken = process.env.MAP_TOKEN;
 const geocodingClient = mbxGeocoding({ accessToken: mapBoxToken }); 
-const MongoStore = require("connect-mongo");
+const MongoStore = require("connect-mongo").default;
 
 
 
